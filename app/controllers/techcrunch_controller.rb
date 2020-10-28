@@ -16,13 +16,5 @@ class TechcrunchController < ApplicationController
     end
 
     @doc = Nokogiri::HTML.parse(html, nil, charset)
-    # count = 0
-    # data = []
-    # @techcrunch = doc.css('ul#river1 > li.river-block > div.block > div.block-content > h2.post-title > a').first(10).each do |link|
-      # count += 1
-      # url = link.css("a")[0][:href]
-      # name = link.css("a").text
-      # puts "name: #{name}, url: #{url}"
-    # end
   end
 end
