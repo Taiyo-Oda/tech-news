@@ -1,5 +1,14 @@
-- @doc.css('ul#river1 > li.river-block > div.block > div.block-content > h2.post-title > a').first(10).each do |link|
-  .a
-    = link_to link[:href] do
-      = link.text
-  
+- @docs.each do |doc|
+  .techcrunch
+    - doc.css('ul#river1 > li.river-block > div.block > div.block-content > h2.post-title > a').each do |link|
+      .techcrunch__links
+        テッククランチ
+        = link_to link[:href] do
+          = link.text
+  .gizmodo
+    - doc.css('body > main > div.l-generalContent-secondary > div > div.s-body-ranking > aside > div.s-Ranking_List > div > ol.s-Ranking_ListContainer.-daily > li > section > div > h3 > a').each do |link|
+      .gizmodo__links
+        ギズモード
+        = link_to link[:href] do
+          = link.text
+
