@@ -1,0 +1,38 @@
+- @docs.each do |doc|
+  .techcrunch
+    - doc.css('ul#river1 > li.river-block > div.block > div.block-content > h2.post-title > a').each do |link|
+      .techcrunch__links
+        テッククランチ
+        = link_to link[:href] do
+          = link.text
+  .gizmodo
+    - doc.css('body > main > div.l-generalContent-secondary > div > div.s-body-ranking > aside > div.s-Ranking_List > div > ol.s-Ranking_ListContainer.-daily > li > section > div > h3 > a').each do |link|
+      .gizmodo__links
+        ギズモード
+        = link_to link[:href] do
+          = link.text
+  .electrek
+    - doc.css('#content > article > div > h1 > a').each do |link|
+      .gizmodo__links
+        electrek
+        = link_to link[:href] do
+          = link.text
+  .tesmanian
+    - doc.css('.shopify-section > div > div > div > div > div > div.twelve.columns > h3 > a').each do |link|
+      .gizmodo__links
+        テスラ
+        = link_to link[:href] do
+          = link.text
+  .macrumors
+    - doc.css('#root > div > div:nth-child(5) > div.wrapper--20Awsb5E > div.main--3s50rdtq > article > div.titlebar--3N4MCKxL > h1 > a').each do |link|
+      .gizmodo__links
+        MacRumors
+        = link_to link[:href] do
+          = link.text
+  .towords
+    - doc.css('#root > div > div.t.n.u > div.ae.at > div > div > div > div > div > div.cp.ae > div.z.ae > div > section > div > h1 > a').each do |link|
+      .gizmodo__links
+        towords
+        = link_to "https://towardsdatascience.com#{link[:href]}" do
+          = link.text
+
