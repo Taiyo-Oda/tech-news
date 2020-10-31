@@ -2,12 +2,15 @@ class TechcrunchController < ApplicationController
   require "open-uri"
   require "nokogiri"
   require "robotex"
-  require "csv"
 
   def index
     urls = [
       "https://jp.techcrunch.com/",
       "https://www.gizmodo.jp/articles/",
+      "https://electrek.co/",
+      "https://www.tesmanian.com/",
+      "https://www.macrumors.com/",
+      "https://towardsdatascience.com/"
     ]
 
     @docs = []
