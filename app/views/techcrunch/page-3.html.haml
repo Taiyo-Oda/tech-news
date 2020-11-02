@@ -1,0 +1,9 @@
+.links
+    - doc.css('#content > article > div.feat-image-wrapper > div.feat-image.wide > a > img').zip(doc.css('#content > article > div > h1 > a')) do |img, link|
+      electrik
+      .img
+        = link_to link[:href] do
+          = image_tag img["src"]
+      .link
+        = link_to link[:href] do
+          = link.text

@@ -1,0 +1,9 @@
+.links
+    - doc.css('#shopify-section-1581705557561 > div > div > div > div > div > div.four.columns > a > div > img').each do |link|
+      テスラ
+      .img
+        = link_to "https://www.tesmanian.com#{link.parent.parent[:href]}" do
+          = image_tag link["data-src"]
+      .link
+        = link_to "https://www.tesmanian.com#{link.parent.parent[:href]}" do
+          = link[:alt]

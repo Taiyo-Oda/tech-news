@@ -1,0 +1,9 @@
+.links
+    - doc.css('#root > div > div:nth-child(5) > div.wrapper--20Awsb5E > div.main--3s50rdtq > article > div.titlebar--3N4MCKxL > h1 > a').zip(doc.css('#root > div > div:nth-child(5) > div.wrapper--20Awsb5E > div.main--3s50rdtq > article > div.content--2u3grYDr.js-content > div > div.js-contentInner > p > img')) do |link, img|
+      MacRumors
+      .link
+        = link_to link[:href] do
+          = link.text
+      .img
+        = link_to link[:href] do
+          = image_tag img["data-src"]
