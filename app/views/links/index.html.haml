@@ -1,65 +1,81 @@
-.conteiner
-  %span.sitename TechCrunch
-  - @docs[0].css('ul > li > div > div.block-content > span > a > img').each do |link|
-    .contents
-      .img
-        = link_to link.parent[:href] do
-          = image_tag link["data-src"]
-      .link
-        = link_to link.parent[:href] do
-          = link[:alt]
+.main
+  .top
+    .siteName
+      %span.name TechCrunch
+  .contents
+    - @docs[0].css('ul > li > div > div.block-content > span > a > img').each do |link|
+      .links
+        .img
+          = link_to link.parent[:href] do
+            = image_tag link["data-src"], class: "imageSize"
+        .link
+          = link_to link.parent[:href], class: "linkText" do
+            = link[:alt]
 
-.next
-= link_to "page-2.html.haml" do
-  %span NEXT
+  -# .top
+  -#   .siteName
+  -#     %span.name GIZMODO
+  -# .contents
+  -#   - @docs[1].css('body > main > div.l-generalContent-primary.-main.-withSecondary > div > ul > li > article > p > a > img').each do |link|
+  -#     .links
+  -#       .img
+  -#         = link_to "https://www.gizmodo.jp#{link.parent[:href]}" do
+  -#           = image_tag link["data-src"], class: "imageSize"
+  -#       .link
+  -#         = link_to "https://www.gizmodo.jp#{link.parent[:href]}", class: "linkText" do
+  -#           = link[:alt]
 
-  -# .links
-  -#   - doc.css('body > main > div.l-generalContent-primary.-main.-withSecondary > div > ul > li > article > p > a > img').each do |link|
-  -#     ギズモード
-  -#     .img
-  -#       = link_to "https://www.gizmodo.jp#{link.parent[:href]}" do
-  -#         = image_tag link["data-src"]
-  -#     .link
-  -#       = link_to "https://www.gizmodo.jp#{link.parent[:href]}" do
-  -#         = link[:alt]
+  -# .top
+  -#   .siteName
+  -#     %span.name electrik
+  -# .contents
+  -#   - @docs[2].css('#content > article > div.feat-image-wrapper > div.feat-image.wide > a > img').zip(@docs[2].css('#content > article > div > h1 > a')) do |img, link|
+  -#     .links
+  -#       .img
+  -#         = link_to link[:href] do
+  -#           = image_tag img["src"], class: "imageSize"
+  -#       .link
+  -#         = link_to link[:href], class: "linkText" do
+  -#           = link.text
 
-  -# .links
-  -#   - doc.css('#content > article > div.feat-image-wrapper > div.feat-image.wide > a > img').zip(doc.css('#content > article > div > h1 > a')) do |img, link|
-  -#     electrik
-  -#     .img
-  -#       = link_to link[:href] do
-  -#         = image_tag img["src"]
-  -#     .link
-  -#       = link_to link[:href] do
-  -#         = link.text
+  -# .top
+  -#   .siteName
+  -#     %span.name TESMANIAN
+  -# .contents
+  -#   - @docs[3].css('#shopify-section-1581705557561 > div > div > div > div > div > div.four.columns > a > div > img').each do |link|
+  -#     .links
+  -#       .img
+  -#         = link_to "https://www.tesmanian.com#{link.parent.parent[:href]}" do
+  -#           = image_tag link["data-src"], class: "imageSize"
+  -#       .link
+  -#         = link_to "https://www.tesmanian.com#{link.parent.parent[:href]}", class: "linkText" do
+  -#           = link[:alt]
 
-  -# .links
-  -#   - doc.css('#shopify-section-1581705557561 > div > div > div > div > div > div.four.columns > a > div > img').each do |link|
-  -#     テスラ
-  -#     .img
-  -#       = link_to "https://www.tesmanian.com#{link.parent.parent[:href]}" do
-  -#         = image_tag link["data-src"]
-  -#     .link
-  -#       = link_to "https://www.tesmanian.com#{link.parent.parent[:href]}" do
-  -#         = link[:alt]
+  -# .top
+  -#   .siteName
+  -#     %span.name MacRumors
+  -# .contents
+  -#   - @docs[4].css('#root > div > div:nth-child(5) > div.wrapper--20Awsb5E > div.main--3s50rdtq > article > div.titlebar--3N4MCKxL > h1 > a').zip(@docs[4].css('#root > div > div:nth-child(5) > div.wrapper--20Awsb5E > div.main--3s50rdtq > article > div.content--2u3grYDr.js-content > div > div.js-contentInner > p > img')) do |link, img|
+  -#     .links
+  -#       .img
+  -#         = link_to link[:href] do
+  -#           = image_tag img["data-src"], class: "imageSize"
+  -#       .link
+  -#         = link_to link[:href], class: "linkText" do
+  -#           = link.text
 
+  -# .top
+  -#   .siteName
+  -#     %span.name towords
+  -# .contents
+  -#   - @docs[5].css('#root > div > div.t.n.u > div.ae.at > div > div > div > div > div > div.cp.ae > div.z.ae > div > section > div > h1 > a').each do |link|
+  -#     .links
+  -#       .link
+  -#         = link_to "https://towardsdatascience.com#{link[:href]}", class: "linkText" do
+  -#           = link.text
 
-  -# .links
-  -#   - doc.css('#root > div > div:nth-child(5) > div.wrapper--20Awsb5E > div.main--3s50rdtq > article > div.titlebar--3N4MCKxL > h1 > a').zip(doc.css('#root > div > div:nth-child(5) > div.wrapper--20Awsb5E > div.main--3s50rdtq > article > div.content--2u3grYDr.js-content > div > div.js-contentInner > p > img')) do |link, img|
-  -#     MacRumors
-  -#     .link
-  -#       = link_to link[:href] do
-  -#         = link.text
-  -#     .img
-  -#       = link_to link[:href] do
-  -#         = image_tag img["data-src"]
-
-  -# .links
-  -#   - doc.css('#root > div > div.t.n.u > div.ae.at > div > div > div > div > div > div.cp.ae > div.z.ae > div > section > div > h1 > a').each do |link|
-  -#     towords
-  -#     .link
-  -#       = link_to "https://towardsdatascience.com#{link[:href]}" do
-  -#         = link.text
     
-
+.next
+  = link_to "page-2.html.haml" do
+    %span NEXT
 

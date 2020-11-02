@@ -1,9 +1,12 @@
-.links
-    - doc.css('#shopify-section-1581705557561 > div > div > div > div > div > div.four.columns > a > div > img').each do |link|
-      テスラ
+.top
+  .siteName
+    %span.name TESMANIAN
+.contents
+  - @docs[3].css('#shopify-section-1581705557561 > div > div > div > div > div > div.four.columns > a > div > img').each do |link|
+    .links
       .img
         = link_to "https://www.tesmanian.com#{link.parent.parent[:href]}" do
-          = image_tag link["data-src"]
+          = image_tag link["data-src"], class: "imageSize"
       .link
-        = link_to "https://www.tesmanian.com#{link.parent.parent[:href]}" do
+        = link_to "https://www.tesmanian.com#{link.parent.parent[:href]}", class: "linkText" do
           = link[:alt]

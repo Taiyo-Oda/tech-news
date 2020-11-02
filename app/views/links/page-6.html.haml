@@ -1,6 +1,9 @@
-.links
-    - doc.css('#root > div > div.t.n.u > div.ae.at > div > div > div > div > div > div.cp.ae > div.z.ae > div > section > div > h1 > a').each do |link|
-      towords
+.top
+  .siteName
+    %span.name towords
+.contents
+  - @docs[5].css('#root > div > div.t.n.u > div.ae.at > div > div > div > div > div > div.cp.ae > div.z.ae > div > section > div > h1 > a').each do |link|
+    .links
       .link
-        = link_to "https://towardsdatascience.com#{link[:href]}" do
+        = link_to "https://towardsdatascience.com#{link[:href]}", class: "linkText" do
           = link.text
