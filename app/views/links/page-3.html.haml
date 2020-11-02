@@ -1,9 +1,12 @@
-.links
-    - doc.css('#content > article > div.feat-image-wrapper > div.feat-image.wide > a > img').zip(doc.css('#content > article > div > h1 > a')) do |img, link|
-      electrik
+.top
+  .siteName
+    %span.name electrik
+.contents
+  - @docs[2].css('#content > article > div.feat-image-wrapper > div.feat-image.wide > a > img').zip(@docs[2].css('#content > article > div > h1 > a')) do |img, link|
+    .links
       .img
         = link_to link[:href] do
-          = image_tag img["src"]
+          = image_tag img["src"], class: "imageSize"
       .link
-        = link_to link[:href] do
+        = link_to link[:href], class: "linkText" do
           = link.text
