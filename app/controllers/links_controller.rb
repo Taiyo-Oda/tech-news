@@ -1,4 +1,4 @@
-class TechcrunchController < ApplicationController
+class LinksController < ApplicationController
   require "open-uri"
   require "nokogiri"
   require "robotex"
