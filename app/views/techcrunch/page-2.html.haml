@@ -1,0 +1,9 @@
+.links
+    - doc.css('body > main > div.l-generalContent-primary.-main.-withSecondary > div > ul > li > article > p > a > img').each do |link|
+      ギズモード
+      .img
+        = link_to "https://www.gizmodo.jp#{link.parent[:href]}" do
+          = image_tag link["data-src"]
+      .link
+        = link_to "https://www.gizmodo.jp#{link.parent[:href]}" do
+          = link[:alt]
