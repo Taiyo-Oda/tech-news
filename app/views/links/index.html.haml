@@ -1,17 +1,20 @@
-.conteiner
-  %span.sitename TechCrunch
-  - @docs[0].css('ul > li > div > div.block-content > span > a > img').each do |link|
-    .contents
-      .img
-        = link_to link.parent[:href] do
-          = image_tag link["data-src"]
-      .link
-        = link_to link.parent[:href] do
-          = link[:alt]
+.main
+  .top
+    .siteName
+      %span.name TechCrunch
+  .contents
+    - @docs[0].css('ul > li > div > div.block-content > span > a > img').each do |link|
+      .links
+        .img
+          = link_to link.parent[:href] do
+            = image_tag link["data-src"], class: "imageSize"
+        .link
+          = link_to link.parent[:href], class: "linkText" do
+            = link[:alt]
 
-.next
-= link_to "page-2.html.haml" do
-  %span NEXT
+  .next
+    = link_to "page-2.html.haml" do
+      %span NEXT
 
   -# .links
   -#   - doc.css('body > main > div.l-generalContent-primary.-main.-withSecondary > div > ul > li > article > p > a > img').each do |link|
