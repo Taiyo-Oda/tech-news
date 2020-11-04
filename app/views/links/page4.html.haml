@@ -1,0 +1,25 @@
+.container
+  .top
+    .siteName
+      %span.name TESMANIAN
+  .contents
+    - @docs[3].css('#shopify-section-1581705557561 > div > div > div > div > div > div.four.columns > a > div > img').each do |link|
+      .links
+        .img
+          = link_to "https://www.tesmanian.com#{link.parent.parent[:href]}" do
+            = image_tag link["data-src"], class: "imageSize"
+        .link
+          = link_to "https://www.tesmanian.com#{link.parent.parent[:href]}", class: "linkText" do
+            = link[:alt]
+
+.scroller-status{:style => "display: block;"}
+  .loader-ellips.infinite-scroll-request{:style => "display: none;"}
+    %span.loader-ellips__dot
+    %span.loader-ellips__dot
+    %span.loader-ellips__dot
+    %span.loader-ellips__dot
+  %p.scroller-status__message.infinite-scroll-last{:style => "display: block;"} End of content
+  %p.scroller-status__message.infinite-scroll-error{:style => "display: none;"} No more pages to load
+
+.next
+  = link_to "NEXT",  page5_links_path, class: "nextPage"

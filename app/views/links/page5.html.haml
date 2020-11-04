@@ -1,0 +1,25 @@
+.container
+  .top
+      .siteName
+        %span.name MacRumors
+    .contents
+      - @docs[4].css('#root > div > div:nth-child(5) > div.wrapper--20Awsb5E > div.main--3s50rdtq > article > div.titlebar--3N4MCKxL > h1 > a').zip(@docs[4].css('#root > div > div:nth-child(5) > div.wrapper--20Awsb5E > div.main--3s50rdtq > article > div.content--2u3grYDr.js-content > div > div.js-contentInner > p > img')) do |link, img|
+        .links
+          .img
+            = link_to link[:href] do
+              = image_tag img["data-src"], class: "imageSize"
+          .link
+            = link_to link[:href], class: "linkText" do
+              = link.text
+
+.scroller-status{:style => "display: block;"}
+  .loader-ellips.infinite-scroll-request{:style => "display: none;"}
+    %span.loader-ellips__dot
+    %span.loader-ellips__dot
+    %span.loader-ellips__dot
+    %span.loader-ellips__dot
+  %p.scroller-status__message.infinite-scroll-last{:style => "display: block;"} End of content
+  %p.scroller-status__message.infinite-scroll-error{:style => "display: none;"} No more pages to load
+
+.next
+  = link_to "NEXT",  page6_links_path, class: "nextPage" 

@@ -1,0 +1,25 @@
+.container
+  .top
+    .siteName
+      %span.name electrik
+  .contents
+    - @docs[2].css('#content > article > div.feat-image-wrapper > div.feat-image.wide > a > img').zip(@docs[2].css('#content > article > div > h1 > a')) do |img, link|
+      .links
+        .img
+          = link_to link[:href] do
+            = image_tag img["src"], class: "imageSize"
+        .link
+          = link_to link[:href], class: "linkText" do
+            = link.text
+
+.scroller-status{:style => "display: block;"}
+  .loader-ellips.infinite-scroll-request{:style => "display: none;"}
+    %span.loader-ellips__dot
+    %span.loader-ellips__dot
+    %span.loader-ellips__dot
+    %span.loader-ellips__dot
+  %p.scroller-status__message.infinite-scroll-last{:style => "display: block;"} End of content
+  %p.scroller-status__message.infinite-scroll-error{:style => "display: none;"} No more pages to load
+
+.next
+  = link_to "NEXT",  page4_links_path, class: "nextPage"
