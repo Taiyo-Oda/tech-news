@@ -7,6 +7,9 @@ class LinksController < ApplicationController
   def index
   end
 
+  def page1
+  end
+
   def page2
   end
 
@@ -17,9 +20,6 @@ class LinksController < ApplicationController
   end
 
   def page5
-  end
-
-  def page6
   end
   
   def docs

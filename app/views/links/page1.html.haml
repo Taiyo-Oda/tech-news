@@ -1,0 +1,14 @@
+.container
+  .top
+    .siteName
+      %span.name GIZMODO
+  .contents
+    - @docs[1].css('body > main > div.l-generalContent-primary.-main.-withSecondary > div > ul > li > article > p > a > img').each do |link|
+      .links
+        .img
+          = link_to "https://www.gizmodo.jp#{link.parent[:href]}" do
+            = image_tag link["data-src"], class: "imageSize"
+        .link
+          = link_to "https://www.gizmodo.jp#{link.parent[:href]}", class: "linkText" do
+            = link[:alt]
+

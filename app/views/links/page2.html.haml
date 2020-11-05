@@ -1,26 +1,14 @@
 .container
   .top
     .siteName
-      %span.name GIZMODO
+      %span.name electrik
   .contents
-    - @docs[1].css('body > main > div.l-generalContent-primary.-main.-withSecondary > div > ul > li > article > p > a > img').each do |link|
+    - @docs[2].css('#content > article > div.feat-image-wrapper > div.feat-image.wide > a > img').zip(@docs[2].css('#content > article > div > h1 > a')) do |img, link|
       .links
         .img
-          = link_to "https://www.gizmodo.jp#{link.parent[:href]}" do
-            = image_tag link["data-src"], class: "imageSize"
+          = link_to link[:href] do
+            = image_tag img["src"], class: "imageSize"
         .link
-          = link_to "https://www.gizmodo.jp#{link.parent[:href]}", class: "linkText" do
-            = link[:alt]
-
-.scroller-status{:style => "display: block;"}
-  .loader-ellips.infinite-scroll-request{:style => "display: none;"}
-    %span.loader-ellips__dot
-    %span.loader-ellips__dot
-    %span.loader-ellips__dot
-    %span.loader-ellips__dot
-  %p.scroller-status__message.infinite-scroll-last{:style => "display: block;"} End of content
-  %p.scroller-status__message.infinite-scroll-error{:style => "display: none;"} No more pages to load
-
-.next
-  = link_to "NEXT",  page3_links_path, class: "nextPage"
+          = link_to link[:href], class: "linkText" do
+            = link.text
 

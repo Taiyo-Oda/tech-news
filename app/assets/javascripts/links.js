@@ -56,11 +56,19 @@
 
 // })(document, jQuery);
 
+
+// ここからサンプル１
 $(document).on('turbolinks:load', function () {
   $('.main').infiniteScroll({
-    path: '.nextPage',
+    path: function() {
+      var pageNumber = ( this.loadCount + 1 );
+      var url = '/links/page' + pageNumber;
+      return url
+    },
     append: '.container',
     status: '.scroller-status',
-    hideNav: '.next',
+    history: false,
   })
 });
+
+
